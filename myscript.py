@@ -7,10 +7,12 @@ carbensever = '127.0.0.1'
 carbenport = 2003
 delay = 60
 
+# if not accessible to program it will not happen
 while True:
   url = urlopen("http://192.168.1.160/tstat").read()
   print url
 
+# takes the imformation from the json code and puts specific parts of it and the parts are shown
   import json
   j = json.loads(url)
   print "curennt tempriture: %d " %  j['temp']
@@ -20,8 +22,10 @@ while True:
   print "tempary target heat setpoint: %d " %  j.get('t_heat',0)
   print "tempary target cool setpoint: %d " %  j.get('t_cool',75)
 
+# takes the time form the surver and displays it
   timestamp = int(time.time())
 
+# this is the parts of the code we want to share 
   lines = [
     'themistat.temp %s %d' % (j['temp'], timestamp),
     'themistat.tmode %s %d' % (j['tmode'], timestamp),
@@ -31,14 +35,17 @@ while True:
     'themistat.t_cool %s %d' % (j.get('t_cool'), timestamp),
   ]
 
+# form the message 
   message = '\n'.join(lines) + '\n'
   print message
 
+# sends message
   sock = socket.socket()
   sock.connect((carbensever, carbenport))
   sock.sendall(message)
   sock.close()
 
+# displays message
   print "loop end\n\n"
 
   time.sleep(delay)
