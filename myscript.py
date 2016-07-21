@@ -18,7 +18,7 @@ while True:
   print "target tempriture temporariy override: %d " %  j['override']
   print "target tempriture hold status: %d " %  j['hold']
   print "tempary target heat setpoint: %d " %  j.get('t_heat',0)
-  print "tempary target cool setpoint: %d " %  j.get('t_cool',0)
+  print "tempary target cool setpoint: %d " %  j.get('t_cool',75)
 
   timestamp = int(time.time())
 
