@@ -4,9 +4,9 @@ http://192.168.1.150/
 login for terminal ( use putty for windows )
 ssh trevor@192.168.1.150
 
-I am use called screen so I can disconnect form the computer and the program will still run 
+I am use a program called screen so I can disconnect form the computer and the program will still run 
 screen -r
-that will resume session
+that will resume the session
 
 the screen comand with no peramiters will create a new session if the computer reboots
 
