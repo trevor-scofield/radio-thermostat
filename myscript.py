@@ -28,7 +28,7 @@ while True:
   print "tempary target heat setpoint: %d " %  j.get('t_heat',0)
   print "tempary target cool setpoint: %d " %  j.get('t_cool',75)
 
-# send the time that we sent the message 
+# caputers current time for later use to send to grafana
   timestamp = int(time.time())
 
 # get the imformation ready to send to grafona 
