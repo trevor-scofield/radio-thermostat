@@ -14,11 +14,11 @@ delay = 60
 # loop for ever 
 while True:
   
-  # gets imformation for the thermistat 
+  # gets imformation form the thermistat 
   url = urlopen("http://192.168.1.160/tstat").read()
   print url
 
-#  display imformation below
+#  display imformation I got form the thermistat
   import json
   j = json.loads(url)
   print "curennt tempriture: %d " %  j['temp']
@@ -28,7 +28,7 @@ while True:
   print "tempary target heat setpoint: %d " %  j.get('t_heat',0)
   print "tempary target cool setpoint: %d " %  j.get('t_cool',75)
 
-# the time 
+# send the time that we sent the message 
   timestamp = int(time.time())
 
 # get the imformation ready to send to grafona 
