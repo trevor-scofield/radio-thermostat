@@ -13,6 +13,8 @@ delay = 60
 
 # loop for ever 
 while True:
+  
+  # gets imformation for the thermistat 
   url = urlopen("http://192.168.1.160/tstat").read()
   print url
 
