@@ -1,4 +1,4 @@
-# This is the start to my program to check imformation form the thermistat and send to grafona 
+# This program checks imformation form the thermistat and send to grafona 
 
 # needed python libary content
 from urllib2 import urlopen
