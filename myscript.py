@@ -1,18 +1,22 @@
+# This is the start to my program
+
+# needed python libary content
 from urllib2 import urlopen
 import time
 import platform
 import socket
 
+# import imformation for grafona and delay time
 carbensever = '127.0.0.1'
 carbenport = 2003
 delay = 60
 
-# if not accessible to program it will not happen
+# loop for ever 
 while True:
   url = urlopen("http://192.168.1.160/tstat").read()
   print url
 
-# takes the imformation from the json code and puts specific parts of it and the parts are shown
+#  display imformation below
   import json
   j = json.loads(url)
   print "curennt tempriture: %d " %  j['temp']
@@ -22,10 +26,10 @@ while True:
   print "tempary target heat setpoint: %d " %  j.get('t_heat',0)
   print "tempary target cool setpoint: %d " %  j.get('t_cool',75)
 
-# takes the time form the surver and displays it
+# the time 
   timestamp = int(time.time())
 
-# this is the parts of the code we want to share 
+# get the imformation ready to send to grafona 
   lines = [
     'themistat.temp %s %d' % (j['temp'], timestamp),
     'themistat.tmode %s %d' % (j['tmode'], timestamp),
@@ -45,7 +49,7 @@ while True:
   sock.sendall(message)
   sock.close()
 
-# displays message
+# loop end then delay and start again 
   print "loop end\n\n"
 
   time.sleep(delay)
