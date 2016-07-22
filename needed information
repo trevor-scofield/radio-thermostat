@@ -16,3 +16,6 @@ you can start the program by typing
  python myscript.py
 
 ctrl-c will kill the program
+
+thermostat api imformation
+http://lowpowerlab.com/downloads/RadioThermostat_CT50_Honeywell_Wifi_API_V1.3.pdf
